@@ -1,0 +1,190 @@
+
+      <img src="./asserts/Screenshot 2025-11-21 113917.png" alt="corner-pic" className="fixed top-4 left-4 w-20 h-20 rounded-full shadow-xl z-50 border-2 border-white/50" />
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat text-white" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1503264116251-35a269479413?w=1600&q=80')` }}">
+      
+      <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <img
+            src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&q=80"
+            alt="vlogger-logo"
+            className="w-12 h-12 rounded-full object-cover ring-2 ring-white/20"
+          />
+          <div>
+            <h1 className="text-xl font-bold tracking-tight">Shubham Sharma Vlogs</h1>
+            <p className="text-xs text-gray-300">Travel • Life • Stories</p>
+          </div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/yP9KiFTyBks?si=nwcgwZc0oFdoFnbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/67sWVZSuXnM?si=M0uTCiAhoad1RnJG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+
+        <nav className="flex items-center gap-6">
+          <a href="#home" className="hover:underline text-sm">
+            Home
+          </a>
+          <a href="#videos" className="hover:underline text-sm">
+            Videos
+          </a>
+          <a href="#about" className="hover:underline text-sm">
+            About
+          </a>
+          <a href="#contact" className="hover:underline text-sm">
+            Contact
+          </a>
+        </nav>
+      </header>
+
+      {/* HERO */}
+      <section id="home" className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-8">
+          <motion.div
+            initial={{ x: -40, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-4"
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+              Come travel the world with me ✈️
+            </h2>
+            <p className="text-gray-300 max-w-xl">
+              Vlogs, travel tips, and behind-the-scenes — new episodes every week. Click
+              a destination to see videos from that place, or scroll to watch the
+              latest upload.
+            </p>
+
+            <div className="flex items-center gap-4">
+              <button className="px-5 py-2 bg-indigo-600 rounded-2xl shadow-lg hover:scale-105 transform transition">
+                Watch Latest
+              </button>
+
+              <div className="relative">
+                <details className="group">
+                  <summary className="cursor-pointer select-none bg-white/8 px-4 py-2 rounded-2xl">
+                    Locations ▾
+                  </summary>
+                  <div className="mt-2 bg-white/6 rounded-lg p-3">
+                    <ul className="space-y-2 text-sm">
+                      {locations.map((loc) => (
+                        <li key={loc} className="hover:bg-white/8 rounded px-2 py-1">
+                          {loc}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 text-sm text-gray-300">
+              <span>Contact:</span>
+              <a href="tel:+91970889786" className="underline">
+                +91 970889786
+              </a>
+            </div>
+          </motion.div>
+
+          {/* HERO IMAGE - replace with your vlog photo */}
+          <motion.div
+            initial={{ scale: 0.98, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            className="relative w-full h-80 md:h-96 rounded-3xl overflow-hidden shadow-2xl"
+          >
+            {/* Put your vlogger image here. This is a placeholder from Unsplash. */}
+            <img
+              src="https://images.unsplash.com/photo-1517260914579-60f4b18c6f82?w=1400&q=80"
+              alt="vlogger-hero"
+              className="w-full h-full object-cover"
+            />
+
+            {/* Animated overlay */}
+            <motion.div
+              animate={{ opacity: [0, 0.25, 0] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* VIDEO GALLERY */}
+      <section id="videos" className="max-w-6xl mx-auto px-6 py-10">
+        <h3 className="text-2xl font-bold mb-4">Latest Videos</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <motion.article
+              key={i}
+              whileHover={{ y: -6 }}
+              className="bg-white/5 rounded-xl overflow-hidden shadow-lg"
+            >
+              <div className="relative">
+                <img
+                  src={`https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=60&fit=crop&auto=format&ixlib=rb-4.0.3&s=${i}`}
+                  alt={`video-${i}`}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-white/10 backdrop-blur-md px-3 py-2 rounded-full shadow-lg">
+                    ▶️ Play
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-4">
+                <h4 className="font-semibold">Episode {i + 1} — City Vlog</h4>
+                <p className="text-xs text-gray-400 mt-1">5:12 • Vlog • {locations[i % locations.length]}</p>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      {/* ABOUT + CONTACT */}
+      <section id="about" className="max-w-6xl mx-auto px-6 py-12">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 className="text-3xl font-bold">About Me</h3>
+            <p className="text-gray-300 mt-3">
+              Hi — I'm Shubham. I travel, film, and share stories from the places I visit. My vlogs focus on immersive experiences, local food, and useful tips to help you plan your own trips.
+            </p>
+
+            <ul className="mt-4 space-y-2 text-sm text-gray-300">
+              <li>• Weekly uploads</li>
+              <li>• Behind the scenes on TikTok & Instagram</li>
+              <li>• Customized travel itineraries on request</li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <div className="bg-white/5 p-4 rounded-xl">
+              <h4 className="font-semibold">Business Inquiries</h4>
+              <p className="text-sm text-gray-300 mt-2">Email: <a href="mailto:shubham@example.com" className="underline">shubham@example.com</a></p>
+            </div>
+
+            <div className="bg-white/5 p-4 rounded-xl">
+              <h4 className="font-semibold">Get in touch</h4>
+              <form className="mt-3 flex flex-col gap-3">
+                <input className="bg-white/5 rounded px-3 py-2" placeholder="Your name" />
+                <input className="bg-white/5 rounded px-3 py-2" placeholder="Email" />
+                <textarea className="bg-white/5 rounded px-3 py-2" placeholder="Message" rows={3} />
+                <button className="self-start px-4 py-2 bg-indigo-600 rounded-2xl">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer id="contact" className="border-t border-white/6 mt-12">
+        <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="text-sm text-gray-300">© {new Date().getFullYear()} Shubham Sharma • All rights reserved</div>
+          <div className="flex items-center gap-4 text-sm">
+            <a href="#" className="hover:underline">YouTube</a>
+            <a href="#" className="hover:underline">Instagram</a>
+            <a href="#" className="hover:underline">Twitter</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
